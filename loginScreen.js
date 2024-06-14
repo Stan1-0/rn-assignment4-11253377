@@ -2,15 +2,18 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native-web";
+import { TouchableOpacity } from "react-native";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
-export default function Login({navigation}) {
-const [name, setName] = useState('');
-const [email, setEmail] = useState('');
+import { Entypo } from '@expo/vector-icons';
 
-const handleLogin = () =>{
-  navigation.navigate('Home');
-};
+export default function Login({ navigation }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleLogin = () => {
+    navigation.navigate("Home");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -20,22 +23,43 @@ const handleLogin = () =>{
         <Text style={styles.leftlogin}>Let's log in. Apply to jobs</Text>
       </View>
       <View style={styles.credentials}>
-        <TextInput style={styles.box} 
-        placeholder="Name"
-        value={name}
-        onChangeText={setName} 
+        <TextInput
+          style={styles.box}
+          placeholder="Name"
+          value={name}
+          onChangeText={setName}
         />
-        <TextInput style={styles.box} 
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail} 
+        <TextInput
+          style={styles.box}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
         />
-        <Button styles={styles.logInButton} 
-        title="Log in"
-        onPress={handleLogin} />
+        <Button
+          styles={styles.logInButton}
+          title="Log in"
+          onPress={handleLogin}
+        />
       </View>
       <View style={styles.continue}>
         <Text style={styles.contText}>Or continue with</Text>
+      </View>
+      <View style={styles.iconContainer}>
+        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+          <View style={styles.icon}>
+          <AntDesign name="apple1" size={24.5} color="black" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+          <View style={styles.icon}>
+          <AntDesign name="google" size={24.5} color="black" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+          <View style={styles.icon}>
+          <Entypo name="facebook-with-circle" size={24.5} color="#395185" />
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -65,7 +89,7 @@ const styles = StyleSheet.create({
   },
   leftlogin: {
     color: "#0D0D26",
-    fontWeight: 400,
+    fontWeight: 600,
     fontSize: 14,
     lineHeight: 22.4,
   },
@@ -86,6 +110,7 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     margin: 10,
     placeholderTextColor: "#AFB0B6",
+    
   },
   logInButton: {
     gap: 10,
@@ -94,17 +119,34 @@ const styles = StyleSheet.create({
     width: 327,
     height: 56,
     top: 413,
-    left: 24,
+    left: 50,
     borderRadius: 5,
+    alignSelf: 'center',
   },
   continue: {
     position: "absolute",
     width: 327,
     height: 16,
-    left: 24,
+    left: 50,
     top: 534,
   },
   contText: {
     color: "#AFB0B6",
+    alignSelf: 'center'
+  },
+  iconContainer:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    top: 300,
+    left: 120,
+    width: 216,
+    height: 56,
+  },
+  icon:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 56,
+    height: 56,
   },
 });

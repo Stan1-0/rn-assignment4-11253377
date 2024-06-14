@@ -1,4 +1,4 @@
-import { Text } from "react-native-web";
+import { StyleSheet, Text  } from "react-native";
 
 export default function Home() {
   return (
