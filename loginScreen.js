@@ -1,19 +1,41 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TouchableOpacity } from "react-native-web";
 
-export default function Login() {
+export default function Login({navigation}) {
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+
+const handleLogin = () =>{
+  navigation.navigate('Home');
+};
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.leftContent}>
         <Text style={styles.leftHeading}>Jobizz</Text>
-        <Text style={styles.leftWelcome}>Welcome Back</Text>
+        <Text style={styles.leftWelcome}>Welcome Back👋</Text>
         <Text style={styles.leftlogin}>Let's log in. Apply to jobs</Text>
       </View>
       <View style={styles.credentials}>
-        <TextInput style={styles.box} placeholder="Name" />
-        <TextInput style={styles.box} placeholder="Email" />
-        <Button styles={styles.logInButton} title="Log in" />
+        <TextInput style={styles.box} 
+        placeholder="Name"
+        value={name}
+        onChangeText={setName} 
+        />
+        <TextInput style={styles.box} 
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail} 
+        />
+        <Button styles={styles.logInButton} 
+        title="Log in"
+        onPress={handleLogin} />
+      </View>
+      <View style={styles.continue}>
+        <Text style={styles.contText}>Or continue with</Text>
       </View>
     </SafeAreaView>
   );
@@ -63,9 +85,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 400,
     margin: 10,
+    placeholderTextColor: "#AFB0B6",
   },
   logInButton: {
     gap: 10,
     color: "#356899",
+    padding: [16, 48, 16, 48],
+    width: 327,
+    height: 56,
+    top: 413,
+    left: 24,
+    borderRadius: 5,
+  },
+  continue: {
+    position: "absolute",
+    width: 327,
+    height: 16,
+    left: 24,
+    top: 534,
+  },
+  contText: {
+    color: "#AFB0B6",
   },
 });
