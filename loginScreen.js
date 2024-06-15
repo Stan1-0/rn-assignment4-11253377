@@ -1,11 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native";
-import AntDesign from '@expo/vector-icons/AntDesign';
 
-import { Entypo } from '@expo/vector-icons';
 
 export default function Login({ navigation }) {
   const [name, setName] = useState("");
@@ -48,24 +46,36 @@ export default function Login({ navigation }) {
       </View>
       <View style={styles.iconContainer}>
         <TouchableOpacity onPress={() => alert('Continue with apple id')}>
-          <View style={styles.icon}>
-          <AntDesign name="apple1" size={24.5} color="black" />
+          <View >
+          <Image
+          style={styles.icon}
+          source={require("./assets/apple.png")}
+          />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => alert('Continue with google')}>
-          <View style={styles.icon}>
-          <AntDesign name="google" size={24.5} color="black" />
+          <View >
+          <Image
+          style={styles.icon}
+          source={require("./assets/google.png")}
+          />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => alert('Continue with facebook')}>
-          <View style={styles.icon}>
-          <Entypo name="facebook-with-circle" size={24.5} color="#395185" />
+          <View >
+          <Image
+          style={styles.icon}
+          source={require("./assets/facebook.png")}
+          />
           </View>
         </TouchableOpacity>
       </View>
       <View style={{top: 350, alignSelf: 'center'}}>
         <Text style={styles.regText}>Haven't an account?
-          <Text style={{color: '#356899'}}> Register</Text>
+          <Text style={{color: '#356899'}} 
+          onPress={() => alert('Registration not avaliable')}>
+          Register
+          </Text>
         </Text>
         
       </View>
@@ -112,6 +122,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#AFB0B6",
+    right: 14,
     height: 52,
     width: 355,
     padding: 5,
@@ -157,15 +168,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignContent: 'center',
     top: 300,
-    left: 120,
+    left: 90,
     width: 216,
     height: 56,
+    
   },
+  
   icon:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: 56,
-    height: 56,
+    alignSelf: 'center',
+    width: 80,
+    height: 80,
   },
   regText:{
     color: '#BDBEC2',
