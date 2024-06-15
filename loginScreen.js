@@ -9,7 +9,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
 
   const handleLogin = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Home", {name, email});
   };
 
   return (

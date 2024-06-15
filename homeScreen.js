@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native";
 
 export default function Home({ route }) {
   const { name, email } = route.params || {};
@@ -8,9 +7,18 @@ export default function Home({ route }) {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.header}>
+          <View>
           <Text style={styles.title}>{name}</Text>
           <Text style={styles.email}>{email}</Text>
+          </View>
+          <TouchableOpacity style={styles.button}>
+              <Image
+                source={require("./assets/profilePic.png")}
+                style={styles.profilePic}
+              />
+            </TouchableOpacity>
         </View>
+        
       </ScrollView>
     </SafeAreaView>
   );
@@ -22,19 +30,30 @@ const styles = StyleSheet.create({
     backgroundColor: "#FAFAFD",
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 10,
+   flexDirection: 'row',
+   alignItems: 'center',
+   justifyContent: 'space-between',
+   top: 64,
+   width: 254,
+   height: 55,
+   left: 24,
   },
   title: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
+    color: "#ODOD26",
+    fontSize: 24,
+    fontWeight: 'bold',
+    lineHeight: 36,
   },
   email: {
-    color: "#fff",
-    fontSize: 15,
-    fontWeight: "bold",
+    color: "#ODOD26",
+    fontSize: 20,
+    fontWeight: 400,
+    lineHeight: 24,
+    color: '#95969D',
+  },
+  profilePic:{
+    width: 56,
+    height: 56,
+
   },
 });
