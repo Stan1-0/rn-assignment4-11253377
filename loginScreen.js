@@ -47,17 +47,17 @@ export default function Login({ navigation }) {
         <View style={styles.line}/>
       </View>
       <View style={styles.iconContainer}>
-        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+        <TouchableOpacity onPress={() => alert('Continue with apple id')}>
           <View style={styles.icon}>
           <AntDesign name="apple1" size={24.5} color="black" />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+        <TouchableOpacity onPress={() => alert('Continue with google')}>
           <View style={styles.icon}>
           <AntDesign name="google" size={24.5} color="black" />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
+        <TouchableOpacity onPress={() => alert('Continue with facebook')}>
           <View style={styles.icon}>
           <Entypo name="facebook-with-circle" size={24.5} color="#395185" />
           </View>
