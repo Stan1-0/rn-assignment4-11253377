@@ -1,12 +1,9 @@
-import { StyleSheet, Text, View  } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native";
 
-
-
-
-export default function Home({route}) {
-  const {name, email} = route.params || {};
+export default function Home({ route }) {
+  const { name, email } = route.params || {};
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -22,22 +19,22 @@ export default function Home({route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAFAFD',
+    backgroundColor: "#FAFAFD",
   },
-  header:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     padding: 10,
   },
-  title:{
-    color: '#fff',
+  title: {
+    color: "#fff",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
-  email:{
-    color: '#fff',
+  email: {
+    color: "#fff",
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

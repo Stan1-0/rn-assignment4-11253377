@@ -4,7 +4,6 @@ import { Button, StyleSheet, Text, TextInput, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native";
 
-
 export default function Login({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,44 +39,43 @@ export default function Login({ navigation }) {
         />
       </View>
       <View style={styles.continue}>
-        <View style={styles.line}/>
+        <View style={styles.line} />
         <Text style={styles.contText}>Or continue with</Text>
-        <View style={styles.line}/>
+        <View style={styles.line} />
       </View>
       <View style={styles.iconContainer}>
-        <TouchableOpacity onPress={() => alert('Continue with apple id')}>
-          <View >
-          <Image
-          style={styles.icon}
-          source={require("./assets/apple.png")}
-          />
+        <TouchableOpacity onPress={() => alert("Continue with apple id")}>
+          <View>
+            <Image style={styles.icon} source={require("./assets/apple.png")} />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Continue with google')}>
-          <View >
-          <Image
-          style={styles.icon}
-          source={require("./assets/google.png")}
-          />
+        <TouchableOpacity onPress={() => alert("Continue with google")}>
+          <View>
+            <Image
+              style={styles.icon}
+              source={require("./assets/google.png")}
+            />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Continue with facebook')}>
-          <View >
-          <Image
-          style={styles.icon}
-          source={require("./assets/facebook.png")}
-          />
+        <TouchableOpacity onPress={() => alert("Continue with facebook")}>
+          <View>
+            <Image
+              style={styles.icon}
+              source={require("./assets/facebook.png")}
+            />
           </View>
         </TouchableOpacity>
       </View>
-      <View style={{top: 350, alignSelf: 'center'}}>
-        <Text style={styles.regText}>Haven't an account?
-          <Text style={{color: '#356899'}} 
-          onPress={() => alert('Registration not avaliable')}>
-          Register
+      <View style={{ top: 350, alignSelf: "center" }}>
+        <Text style={styles.regText}>
+          Haven't an account?
+          <Text
+            style={{ color: "#356899" }}
+            onPress={() => alert("Registration not avaliable")}
+          >
+            Register
           </Text>
         </Text>
-        
       </View>
     </SafeAreaView>
   );
@@ -130,7 +128,6 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     margin: 10,
     placeholderTextColor: "#AFB0B6",
-    
   },
   logInButton: {
     gap: 10,
@@ -141,7 +138,7 @@ const styles = StyleSheet.create({
     top: 413,
     left: 50,
     borderRadius: 5,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   continue: {
     position: "absolute",
@@ -149,40 +146,39 @@ const styles = StyleSheet.create({
     height: 16,
     left: 50,
     top: 520,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    alignItems: "center",
+    justifyContent: "space-around",
     marginVertical: 20,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
-  line:{
+  line: {
     flex: 1,
     height: 1,
-    backgroundcolor: '#AFB0B6',
+    backgroundcolor: "#AFB0B6",
   },
   contText: {
     color: "#AFB0B6",
-    alignSelf: 'center'
+    alignSelf: "center",
   },
-  iconContainer:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignContent: 'center',
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
     top: 300,
     left: 90,
     width: 216,
     height: 56,
-    
   },
-  
-  icon:{
-    alignSelf: 'center',
+
+  icon: {
+    alignSelf: "center",
     width: 80,
     height: 80,
   },
-  regText:{
-    color: '#BDBEC2',
+  regText: {
+    color: "#BDBEC2",
     fontWeight: 400,
     fontSize: 14,
     lineHeight: 17.71,
-  }
+  },
 });
