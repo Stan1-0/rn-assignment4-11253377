@@ -93,13 +93,13 @@ const styles = StyleSheet.create({
   },
   leftHeading: {
     color: "#356899",
-    fontWeight: 600,
+    fontWeight: 'bold',
     fontSize: 22,
     lineHeight: 33,
   },
   leftWelcome: {
     color: "#0D0D26",
-    fontWeight: 600,
+    fontWeight: 'bold',
     fontSize: 24,
     lineHeight: 33.6,
   },
