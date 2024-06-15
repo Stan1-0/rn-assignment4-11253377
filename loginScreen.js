@@ -42,7 +42,9 @@ export default function Login({ navigation }) {
         />
       </View>
       <View style={styles.continue}>
+        <View style={styles.line}/>
         <Text style={styles.contText}>Or continue with</Text>
+        <View style={styles.line}/>
       </View>
       <View style={styles.iconContainer}>
         <TouchableOpacity onPress={() => console.log('Continue with apple id')}>
@@ -60,6 +62,12 @@ export default function Login({ navigation }) {
           <Entypo name="facebook-with-circle" size={24.5} color="#395185" />
           </View>
         </TouchableOpacity>
+      </View>
+      <View style={{top: 350, alignSelf: 'center'}}>
+        <Text style={styles.regText}>Haven't an account?
+          <Text style={{color: '#356899'}}> Register</Text>
+        </Text>
+        
       </View>
     </SafeAreaView>
   );
@@ -88,8 +96,8 @@ const styles = StyleSheet.create({
     lineHeight: 33.6,
   },
   leftlogin: {
-    color: "#0D0D26",
-    fontWeight: 600,
+    color: "#BDBEC2",
+    fontWeight: 400,
     fontSize: 14,
     lineHeight: 22.4,
   },
@@ -98,6 +106,7 @@ const styles = StyleSheet.create({
     left: 16,
     height: 208,
     width: 328,
+    marginHorizontal: 10,
   },
   box: {
     borderWidth: 1,
@@ -128,7 +137,16 @@ const styles = StyleSheet.create({
     width: 327,
     height: 16,
     left: 50,
-    top: 534,
+    top: 520,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+    flexDirection: 'row',
+  },
+  line:{
+    flex: 1,
+    height: 1,
+    backgroundcolor: '#AFB0B6',
   },
   contText: {
     color: "#AFB0B6",
@@ -149,4 +167,10 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
   },
+  regText:{
+    color: '#BDBEC2',
+    fontWeight: 400,
+    fontSize: 14,
+    lineHeight: 17.71,
+  }
 });
