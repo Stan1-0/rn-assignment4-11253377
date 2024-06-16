@@ -1,8 +1,18 @@
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, TextInput, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TextInput } from "react-native";
+import { ImageBackground } from "react-native";
 
-const featuredJobs =
+
+
+const featuredJobs = [
+  {id: 1, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana', companyLogo: require('./assets/fbsmall.png'),},
+  {id: 2, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+  {id: 3, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+  {id: 4, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+  {id: 5, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+  {id: 6, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+  {id: 7, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
+]
 
 export default function Home({ route }) {
   const { name, email } = route.params || {};
@@ -32,9 +42,47 @@ export default function Home({ route }) {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={{flexDirection: "row", justifyContent: 'space-between', alignItems: 'center', top: 100, margin: 24}}>
+          <View style={{flexDirection: "row", justifyContent: 'space-between', alignItems: 'center', top: 70, margin: 24}}>
             <Text style={{fontSize: 16, fontWeight:'bold', color: '#ODOD26', lineHeight: 20.8}}>Featured Jobs</Text>
             <Text style={{fontsiez: 14, fontWeight: 400, color: '#95969D'}}>See all</Text>
+              </View>
+              <View style={styles.cardContainer}>
+              <FlatList
+            data={featuredJobs}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            
+            renderItem={({item}) => (
+              <View style={styles.parent}>
+                <Image 
+                style={styles.cardItem}
+                source={require('./assets/cardBackground.png')}
+                />
+                <View style={styles.textOverlay}>
+                  <View>
+                <Image
+                  style={styles.companyLogo}
+                  source={item.companyLogo}
+                  />
+                  <View style={styles.info}>
+                  <Text style={{color: '#FFFFFF', fontSize: 16, fontWeight: 'medium'}}>{item.jobTitle}</Text>
+                  <Text style={{color: '#FFFFFF', fontSize: 14, fontWeight: 'semibold'}}>{item.employer}</Text>
+                  </View>
+                  </View>
+                  <View style={{flexDirection: "row", justifyContent: 'space-between', margin: 10, top: 30}}>
+                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium'}}>{item.Salary}</Text>
+                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium'}}>{item.location}</Text>
+                  </View>
+                  <Image
+                  style={styles.companyLogo}
+                  source={item.companyLogo}
+                  />
+                </View>
+                
+              </View>
+              )}
+              keyExtractor={(item) => item.id}
+            />
           </View>
       </ScrollView>
     </SafeAreaView>
@@ -81,7 +129,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 368,
     margin: 24,
-    top: 100,
+    top: 80,
     
   },
   input:{
@@ -98,5 +146,44 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 14,
     alignItems: 'center'
-  }
+  },
+  cardContainer: {
+    top: 70,
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+  },
+  cardItem: {
+    backgroundColor: '#5386E4',
+    width: '100%',
+    height: '100%',
+    borderRadius: 24,
+  },
+  info:{
+   flexDirection: 'column',
+   
+   top: -50,
+   justifyContent: 'space-between',
+  },
+  companyLogo:{
+    width: 22,
+    height: 23.57,
+    top: -120,
+    left: -100,
+    backgroundColor: '#FFFFF',
+    borderRadius: 12,
+  },
+  parent:{
+    position: 'relative',
+    width: 280,
+    height: 186,
+    margin: 5,
+  },
+  textOverlay:{
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    right: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
