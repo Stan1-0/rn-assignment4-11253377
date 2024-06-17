@@ -9,7 +9,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
 
   const handleLogin = () => {
-    navigation.navigate("Home", {name, email});
+    navigation.navigate("Home", { name, email });
   };
 
   return (
@@ -33,7 +33,7 @@ export default function Login({ navigation }) {
           onChangeText={setEmail}
         />
         <Button
-          styles={styles.logInButton}
+          style={styles.logInButton}
           title="Log in"
           onPress={handleLogin}
         />
@@ -93,19 +93,19 @@ const styles = StyleSheet.create({
   },
   leftHeading: {
     color: "#356899",
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 22,
     lineHeight: 33,
   },
   leftWelcome: {
     color: "#0D0D26",
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 24,
     lineHeight: 33.6,
   },
   leftlogin: {
     color: "#BDBEC2",
-    fontWeight: 400,
+    fontWeight: "light",
     fontSize: 14,
     lineHeight: 22.4,
   },
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     width: 355,
     padding: 5,
     fontSize: 14,
-    fontWeight: 400,
+    fontWeight: "light",
     margin: 10,
     placeholderTextColor: "#AFB0B6",
   },
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignContent: "center",
     top: 300,
-    left: 90,
+    marginLeft: 80,
     width: 216,
     height: 56,
   },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   regText: {
     color: "#BDBEC2",
-    fontWeight: 400,
+    fontWeight: "light",
     fontSize: 14,
     lineHeight: 17.71,
   },
