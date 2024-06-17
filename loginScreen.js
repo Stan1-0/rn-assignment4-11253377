@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Image,
+  Touchable,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native";
 
@@ -32,11 +40,18 @@ export default function Login({ navigation }) {
           value={email}
           onChangeText={setEmail}
         />
-        <Button
-          style={styles.logInButton}
-          title="Log in"
-          onPress={handleLogin}
-        />
+        <TouchableOpacity style={styles.logInButton} onPress={handleLogin}>
+          <Text
+            style={{
+              color: "#FFFFFF",
+              fontSize: 16,
+              alignSelf: "center",
+              fontWeight: "medium",
+            }}
+          >
+            Log In
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.continue}>
         <View style={styles.line} />
@@ -88,7 +103,7 @@ const styles = StyleSheet.create({
   },
   leftContent: {
     top: 106,
-    left: 16,
+    left: 24,
     height: 33,
   },
   leftHeading: {
@@ -111,33 +126,30 @@ const styles = StyleSheet.create({
   },
   credentials: {
     top: 210,
-    left: 16,
+
     height: 208,
-    width: 328,
-    marginHorizontal: 10,
+    width: "auto",
   },
   box: {
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#AFB0B6",
-    right: 14,
+    alignSelf: "center",
     height: 52,
     width: 355,
     padding: 5,
     fontSize: 14,
     fontWeight: "light",
-    margin: 10,
+    margin: 8,
     placeholderTextColor: "#AFB0B6",
   },
   logInButton: {
-    gap: 10,
-    color: "#356899",
-    padding: [16, 48, 16, 48],
-    width: 327,
+    justifyContent: "center",
+    backgroundColor: "#356899",
+    width: 355,
     height: 56,
-    top: 413,
-    left: 50,
     borderRadius: 5,
+    top: 20,
     alignSelf: "center",
   },
   continue: {
@@ -162,16 +174,15 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignContent: "center",
+    
     top: 300,
-    marginLeft: 80,
-    width: 216,
+    justifyContent: 'space-evenly',
+    width: 'auto',
     height: 56,
   },
 
   icon: {
-    alignSelf: "center",
+    
     width: 80,
     height: 80,
   },
