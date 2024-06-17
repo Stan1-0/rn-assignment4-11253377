@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, TextInput, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ImageBackground } from "react-native";
-
 
 
 const featuredJobs = [
@@ -13,6 +11,19 @@ const featuredJobs = [
   {id: 6, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
   {id: 7, jobTitle:'Software Engineer', employer:'Facebook', Salary: '$180,000', location: 'Accra, Ghana'},
 ]
+
+function getColor(index) {
+  // Generate a random RGB color
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  // Convert RGB to HEX
+  const hex = '#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0');
+  
+  const colors = ['#5386E4','#04284A', '#FFD700', '#00BFFF']; 
+  return colors[index % colors.length]; 
+}
 
 export default function Home({ route }) {
   const { name, email } = route.params || {};
@@ -44,45 +55,48 @@ export default function Home({ route }) {
           </View>
           <View style={{flexDirection: "row", justifyContent: 'space-between', alignItems: 'center', top: 70, margin: 24}}>
             <Text style={{fontSize: 16, fontWeight:'bold', color: '#ODOD26', lineHeight: 20.8}}>Featured Jobs</Text>
-            <Text style={{fontsiez: 14, fontWeight: 400, color: '#95969D'}}>See all</Text>
+            <Text style={{fontsize: 14, fontWeight: 400, color: '#95969D'}}>See all</Text>
               </View>
               <View style={styles.cardContainer}>
               <FlatList
             data={featuredJobs}
             horizontal
             showsHorizontalScrollIndicator={false}
-            
-            renderItem={({item}) => (
-              <View style={styles.parent}>
+            contentContainerStyle={{paddingLeft: 24}}
+            renderItem={({item, index}) => (
+              <TouchableOpacity onPress={() => alert('Coming soon')}>
+              <View style={[styles.parent, {backgroundColor: getColor(index)}]}>
                 <Image 
                 style={styles.cardItem}
                 source={require('./assets/cardBackground.png')}
                 />
                 <View style={styles.textOverlay}>
                   <View>
-                <Image
-                  style={styles.companyLogo}
-                  source={item.companyLogo}
-                  />
                   <View style={styles.info}>
-                  <Text style={{color: '#FFFFFF', fontSize: 16, fontWeight: 'medium'}}>{item.jobTitle}</Text>
+                  <Text style={{color: '#FFFFFF', fontSize: 16, fontWeight: 'bold'}}>{item.jobTitle}</Text>
                   <Text style={{color: '#FFFFFF', fontSize: 14, fontWeight: 'semibold'}}>{item.employer}</Text>
                   </View>
                   </View>
-                  <View style={{flexDirection: "row", justifyContent: 'space-between', margin: 10, top: 30}}>
-                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium'}}>{item.Salary}</Text>
-                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium'}}>{item.location}</Text>
+                  <View style={{flexDirection: "row", justifyContent:'space-between', margin: 10, top: 40}}>
+                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium', left: -45 }}>{item.Salary}</Text>
+                  <Text style={{color: '#FFFFFF', fontSize: 15, fontWeight: 'medium', right: -45}}>{item.location}</Text>
                   </View>
+                  <View style={styles.imageWrapper}>
                   <Image
                   style={styles.companyLogo}
                   source={item.companyLogo}
                   />
+                  </View>
                 </View>
-                
               </View>
+              </TouchableOpacity>
               )}
               keyExtractor={(item) => item.id}
             />
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'center', margin: 24, top: 90}}>
+              <Text>Popular Jobs</Text>
+              <Text>See all</Text>
           </View>
       </ScrollView>
     </SafeAreaView>
@@ -150,26 +164,31 @@ const styles = StyleSheet.create({
   cardContainer: {
     top: 70,
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    
   },
   cardItem: {
-    backgroundColor: '#5386E4',
     width: '100%',
     height: '100%',
-    borderRadius: 24,
   },
   info:{
    flexDirection: 'column',
-   
-   top: -50,
+   top: -30,
    justifyContent: 'space-between',
+  },
+  imageWrapper: {
+    backgroundColor: '#FFFFFF', 
+    width: 46, 
+    height: 46, 
+    top: -110,
+    left: -100,
+    borderRadius: 12,
+    justifyContent: 'center',
   },
   companyLogo:{
     width: 22,
     height: 23.57,
     top: -120,
     left: -100,
-    backgroundColor: '#FFFFF',
     borderRadius: 12,
   },
   parent:{
@@ -177,6 +196,8 @@ const styles = StyleSheet.create({
     width: 280,
     height: 186,
     margin: 5,
+    borderRadius: 24,
+    
   },
   textOverlay:{
     position: 'absolute',
@@ -186,4 +207,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
