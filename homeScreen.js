@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import featuredJobs from './components/FeaturedJobs';
+import popularJobs from './components/popularJobs'
 
 function getColor(index) {
   // Generate a random RGB color
@@ -32,7 +33,7 @@ export default function Home({ route }) {
   const { name, email } = route.params || {};
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      
         <View style={styles.header}>
           <View>
             <Text style={styles.title}>{name}</Text>
@@ -182,8 +183,29 @@ export default function Home({ route }) {
           <Text style={{ fontsize: 14, fontWeight: "light", color: "#95969D" }}>
             See all
           </Text>
-        </View>
-      </ScrollView>
+          </View>
+          <View>
+          <FlatList
+          data={popularJobs}
+          renderItem={(item)=> (
+            <View style={styles.taskItem}>
+              <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
+                  <Text style={{fontWeight: 'semibold', fontSize: 14, color:'#0D0D26'}}>{item.jobTitle}</Text>
+                  <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.company}</Text>
+                  </View>
+                  <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
+                  <Text style={{fontWeight: 'medium', fontSize: 12, color:'#0D0D26'}}>{item.salary}</Text>
+                  <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.location}</Text>
+                  </View>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+          vertical
+          showsVerticalScrollIndicator={false}
+          />
+          </View>
+        
+      
     </SafeAreaView>
   );
 }
@@ -287,5 +309,14 @@ const styles = StyleSheet.create({
     right: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  taskItem: {
+    top: 150,
+    backgroundColor: "#FFFFFF",
+    left: '24',
+    borderRadius: 20,
+    width: '327',
+    height: 74,
+    marginBottom: 20,
   },
 });
