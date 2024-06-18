@@ -184,26 +184,26 @@ export default function Home({ route }) {
             See all
           </Text>
           </View>
-          <View>
+        <View style={styles.card}>
           <FlatList
           data={popularJobs}
-          renderItem={(item)=> (
+          renderItem={({item})=> (
             <View style={styles.taskItem}>
-              <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
+              <View style={{flexDirection: 'column', justifyContent: 'space-between', }}>
                   <Text style={{fontWeight: 'semibold', fontSize: 14, color:'#0D0D26'}}>{item.jobTitle}</Text>
                   <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.company}</Text>
-                  </View>
-                  <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
+              </View>
+              <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
                   <Text style={{fontWeight: 'medium', fontSize: 12, color:'#0D0D26'}}>{item.salary}</Text>
                   <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.location}</Text>
-                  </View>
+              </View>
             </View>
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           vertical
           showsVerticalScrollIndicator={false}
           />
-          </View>
+        </View>
         
       
     </SafeAreaView>
@@ -311,12 +311,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   taskItem: {
-    top: 150,
+    top: 120,
     backgroundColor: "#FFFFFF",
-    left: '24',
     borderRadius: 20,
-    width: '327',
+    width: 'auto',
     height: 74,
     marginBottom: 20,
+  },
+  card: {
+    
   },
 });
