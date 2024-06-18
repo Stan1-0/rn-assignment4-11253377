@@ -1,16 +1,15 @@
-import { StatusBar } from "expo-status-bar";
+
 import { useState } from "react";
 import {
-  Button,
   StyleSheet,
   Text,
   TextInput,
   View,
   Image,
-  Touchable,
+  TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native";
+
 
 export default function Login({ navigation }) {
   const [name, setName] = useState("");
@@ -174,15 +173,12 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: "row",
-    
     top: 300,
-    justifyContent: 'space-evenly',
-    width: 'auto',
+    justifyContent: "space-evenly",
+    width: "auto",
     height: 56,
   },
-
   icon: {
-    
     width: 80,
     height: 80,
   },

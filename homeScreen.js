@@ -9,65 +9,7 @@ import {
   FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-const featuredJobs = [
-  {
-    id: 1,
-    jobTitle: "Software Engineer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-  {
-    id: 2,
-    jobTitle: "QA Tester",
-    employer: "Google",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/gooogle.png"),
-  },
-  {
-    id: 3,
-    jobTitle: "UI/UX Designer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-  {
-    id: 4,
-    jobTitle: "Software Engineer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-  {
-    id: 5,
-    jobTitle: "Software Engineer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-  {
-    id: 6,
-    jobTitle: "Software Engineer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-  {
-    id: 7,
-    jobTitle: "Software Engineer",
-    employer: "Facebook",
-    Salary: "$180,000",
-    location: "Accra, Ghana",
-    companyLogo: require("./assets/fbsmall.png"),
-  },
-];
+import featuredJobs from './components/FeaturedJobs';
 
 function getColor(index) {
   // Generate a random RGB color
@@ -181,9 +123,10 @@ export default function Home({ route }) {
                     <View
                       style={{
                         flexDirection: "row",
-                        justifyContent: "space-between",
+                        width: 'auto',
                         margin: 10,
                         top: 40,
+                        
                       }}
                     >
                       <Text
@@ -282,7 +225,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 20,
-    width: 368,
+    width: 'auto',
     margin: 24,
     top: 80,
   },
