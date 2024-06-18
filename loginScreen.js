@@ -81,14 +81,8 @@ export default function Login({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={{ top: 350, alignSelf: "center" }}>
-        <Text style={styles.regText}>
-          Haven't an account?
-          <Text
-            style={{ color: "#356899" }}
-            onPress={() => alert("Registration not avaliable")}
-          >
-            Register
-          </Text>
+        <Text style={styles.regText}>Haven't an account?
+          <Text style={{ color: "#356899" }} onPress={() => alert("Registration not avaliable")}> Register</Text>
         </Text>
       </View>
     </SafeAreaView>

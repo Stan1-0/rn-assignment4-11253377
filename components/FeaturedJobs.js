@@ -56,6 +56,14 @@ const featuredJobs = [
       location: "Accra, Ghana",
       companyLogo: require("../assets/fbsmall.png"),
     },
+    {
+      id: 8,
+      jobTitle: "Software Engineer",
+      employer: "Facebook",
+      Salary: "$180,000",
+      location: "Accra, Ghana",
+      companyLogo: require("../assets/fbsmall.png"),
+    },
   ];
 
   export default featuredJobs;
