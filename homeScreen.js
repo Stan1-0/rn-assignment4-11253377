@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import featuredJobs from './components/FeaturedJobs';
-import popularJobs from "./components/popularJobs";
 
 function getColor(index) {
   // Generate a random RGB color
@@ -163,9 +162,12 @@ export default function Home({ route }) {
           />
         </View>
         <View
-          style={
-            styles.popularJobs
-          }
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            margin: 24,
+            top: 90,
+          }}
         >
           <Text
             style={{
@@ -180,23 +182,7 @@ export default function Home({ route }) {
           <Text style={{ fontsize: 14, fontWeight: "light", color: "#95969D" }}>
             See all
           </Text>
-          </View>
-          <FlatList
-            data={popularJobs}
-            renderItem={({item}) => (
-              <View style={styles.taskItem}>
-                <View style={{flexdirection: 'column'}}>
-                <Text style={{fontWeight: 'semibold', fontSize: 14,color: '#0D0D26'}}>{item.jobTitle}</Text>
-                <Text style={{fontWeight: 'regular', fontSize: 13,color: '#0D0D26'}}>{item.company}</Text>
-                </View>
-                <View style={{flexDirection: 'column'}}>
-                <Text style={{fontWeight:'medium', fontsize: 12, color: '#0D0D26'}}>{item.salary}</Text>
-                <Text style={{fontWeight: 'regular', fontSize: 13,color: '#0D0D26'}}>{item.location}</Text>
-                </View>
-              </View>
-           )}
-          />
-        
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -301,17 +287,5 @@ const styles = StyleSheet.create({
     right: 10,
     alignItems: "center",
     justifyContent: "center",
-  },
-  popularJobs: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 24,
-    top: 90,
-  },
-  taskItem: {
-    width: 327,
-    height: 74,
-    borderRadius: 20,
-    backgroundColor: '#FFFFFF',
   },
 });
