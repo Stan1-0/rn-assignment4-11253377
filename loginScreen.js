@@ -12,8 +12,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 export default function Login({ navigation }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("Stanley Boateng");
+  const [email, setEmail] = useState("Stankofb@gmail.com");
 
   const handleLogin = () => {
     navigation.navigate("Home", { name, email });
