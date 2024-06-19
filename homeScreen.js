@@ -33,7 +33,7 @@ export default function Home({ route }) {
   const { name, email } = route.params || {};
   return (
     <SafeAreaView style={styles.container}>
-      
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.header}>
           <View>
             <Text style={styles.title}>{name}</Text>
@@ -189,13 +189,18 @@ export default function Home({ route }) {
           data={popularJobs}
           renderItem={({item})=> (
             <View style={styles.taskItem}>
-              <View style={{flexDirection: 'column', justifyContent: 'space-between', }}>
-                  <Text style={{fontWeight: 'semibold', fontSize: 14, color:'#0D0D26'}}>{item.jobTitle}</Text>
-                  <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.company}</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Image source={item.image} style={{ width: 40, height: 40, marginRight: 10 }} />
+                <View style={{ marginLeft: 16 }}>
+                <Text style={{fontWeight: 'semibold', fontSize: 14, color:'#0D0D26'}}>{item.jobTitle}</Text>
+                <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.company}</Text>
+                </View>
               </View>
-              <View style={{flexDirection: 'column', justifyContent: 'space-between'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{flex: 1, alignItems: 'flex-end', top:-35}}>
                   <Text style={{fontWeight: 'medium', fontSize: 12, color:'#0D0D26'}}>{item.salary}</Text>
                   <Text style={{fontWeight: 'regular', fontSize: 13, color:'#0D0D26'}}>{item.location}</Text>
+                </View>
               </View>
             </View>
           )}
@@ -204,8 +209,7 @@ export default function Home({ route }) {
           showsVerticalScrollIndicator={false}
           />
         </View>
-        
-      
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -214,6 +218,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FAFAFD",
+  },
+  scrollViewContent:{
+    flexGrow: 1,
   },
   header: {
     flexDirection: "row",
@@ -311,7 +318,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   taskItem: {
-    top: 120,
+    padding: 20,
+    top: 80,
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
     width: 'auto',

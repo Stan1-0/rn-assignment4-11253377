@@ -26,9 +26,9 @@ const featuredJobs = [
     },
     {
       id: 4,
-      jobTitle: "Software Engineer",
+      jobTitle: "Product Manager",
       employer: "Facebook",
-      Salary: "$180,000",
+      Salary: " $165,000",
       location: "Accra, Ghana",
       companyLogo: require("../assets/fbsmall.png"),
     },
